@@ -1,0 +1,8 @@
+
+<header class="app-header">
+  <h1 class="app-title">Tasks Tracker</h1>
+  <div class="header-actions">
+    <button *ngIf="apiService.isLoggedIn()" (click)="logout()">Logout</button>
+  </div>
+</header>
+

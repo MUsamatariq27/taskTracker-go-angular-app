@@ -1,0 +1,74 @@
+<div class="task-container">
+  <h2>My Tasks</h2>
+
+  <p *ngIf="loading">Loading tasks...</p>
+  <p *ngIf="error" class="error">{{ error }}</p>
+
+  <ul *ngIf="!loading && tasks.length > 0">
+  <li *ngFor="let task of tasks" [class.completed]="task.completed">
+    <!-- Editable title/description -->
+     <!-- Title field -->
+    <div class="task-field">
+      <input *ngIf="task.isEditing" [(ngModel)]="task.title" maxlength="75" class="task-input" />
+      <h3 *ngIf="!task.isEditing" maxlength="75" class="task-display">{{ task.title }}</h3>
+    </div>
+
+    <!-- Description field -->
+    <div class="task-field">
+      <label class="task-label">Description</label>
+      <textarea *ngIf="task.isEditing" [(ngModel)]="task.description" class="task-input"></textarea>
+      <p *ngIf="!task.isEditing" class="task-display">{{ task.description }}</p>
+    </div>
+
+    <!-- Buttons below text fields -->
+    <div class="task-buttons">
+      <button class="edit-btn" (click)="task.isEditing ? saveTask(task) : editTask(task)"
+      [disabled]="task.completed">
+        {{ task.isEditing ? 'Save Changes' : 'Edit' }}
+      </button>
+      <button class="complete-btn" 
+      (click)="toggleComplete(task)"
+      [disabled]="task.isEditing">
+        {{ task.completed ? 'Mark Incomplete' : 'Mark Complete' }}
+      </button>
+      <button class="delete-btn" (click)="deleteTask(task)"
+      [disabled]="task.isEditing">
+        Delete
+      </button>
+    </div>
+  </li>
+</ul>
+
+
+
+  <p *ngIf="!loading && tasks.length === 0">No tasks found.</p>
+</div>
+
+<button class="create-btn" (click)="onCreateTask()">+ Create Task</button>
+
+<div *ngIf="showCreateForm" class="overlay">
+  <div class="popup">
+    <h2>Create New Task</h2>
+
+    <label for="title">Title</label>
+    <input
+      id="title"
+      type="text"
+      [(ngModel)]="newTask.title"
+      maxlength="50"
+      placeholder="Enter task title"
+    />
+
+    <label for="description">Description</label>
+    <textarea
+      id="description"
+      [(ngModel)]="newTask.description"
+      placeholder="Enter task description"
+    ></textarea>
+
+    <div class="popup-buttons">
+      <button class="cancel-btn" (click)="closeCreateTaskForm()">Cancel</button>
+      <button class="add-btn" (click)="addTask()"
+      [disabled]="!newTask.title.trim() || !newTask.description.trim()">Add Task</button>
+    </div>
+  </div>

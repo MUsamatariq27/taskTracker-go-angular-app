@@ -1,0 +1,48 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+frontend-angular/taskTracker-app/dist
+frontend-angular/taskTracker-app/tmp
+frontend-angular/taskTracker-app/out-tsc
+frontend-angular/taskTracker-app/bazel-out
+
+# Node
+frontend-angular/taskTracker-app/node_modules
+frontend-angular/taskTracker-app/npm-debug.log
+frontend-angular/taskTracker-app/yarn-error.log
+
+# IDEs and editors
+frontend-angular/taskTracker-app/.idea/
+frontend-angular/taskTracker-app/.project
+frontend-angular/taskTracker-app/.classpath
+frontend-angular/taskTracker-app/.c9/
+frontend-angular/taskTracker-app/*.launch
+frontend-angular/taskTracker-app/.settings/
+frontend-angular/taskTracker-app/*.sublime-workspace
+
+# Visual Studio Code
+frontend-angular/taskTracker-app/.vscode
+#!frontend-angular/taskTracker-app/.vscode/settings.json
+#!frontend-angular/taskTracker-app/.vscode/tasks.json
+#!frontend-angular/taskTracker-app/.vscode/launch.json
+#!frontend-angular/taskTracker-app/.vscode/extensions.json
+frontend-angular/taskTracker-app/.history/*
+frontend-angular/taskTracker-app/.editorconfig
+frontend-angular/taskTracker-app/.gitignore
+
+
+# Miscellaneous
+frontend-angular/taskTracker-app/.angular/cache
+frontend-angular/taskTracker-app/.sass-cache/
+frontend-angular/taskTracker-app/connect.lock
+frontend-angular/taskTracker-app/coverage
+frontend-angular/taskTracker-app/libpeerconnection.log
+frontend-angular/taskTracker-app/testem.log
+frontend-angular/taskTracker-app/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+backend-go/.env
+backend-go/db.txt
